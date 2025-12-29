@@ -171,7 +171,29 @@
             <span>فارغ</span>
         </div>
     </div>
+<!-- ═══════════════ شريط التبويبات الرئيسي ═══════════════ -->
+    <div class="main-tabs-bar">
+        <div class="main-tabs-container">
+            <button class="main-tab" id="devTab" onclick="toggleDevSection()">
+                <span class="main-tab-icon">🔧</span>
+                <span class="main-tab-text">المطور</span>
+            </button>
+        </div>
+    </div>
 
+    <!-- ═══════════════ قسم المطور ═══════════════ -->
+    <div class="dev-section" id="devSection">
+        <div class="dev-section-header">
+            <span class="dev-section-title">🔧 لوحة المطور</span>
+            <button class="dev-section-close" onclick="toggleDevSection()">✕</button>
+        </div>
+        <div class="dev-section-content" id="devSectionContent">
+            <div class="dev-placeholder">
+                <span>محتوى قسم المطور</span>
+                <span class="dev-placeholder-hint">سيتم إضافة المحتوى لاحقاً</span>
+            </div>
+        </div>
+    </div>
     <!-- ═══════════════ الحاوية الرئيسية ═══════════════ -->
     <div class="main-container">
         <!-- منطقة المحتوى -->
