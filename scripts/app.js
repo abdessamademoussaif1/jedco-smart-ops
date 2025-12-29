@@ -2184,5 +2184,24 @@
         window.resetFilter = resetFilter;
         window.confirmMoveSpot = confirmMoveSpot;
         window.selectSpot = selectSpot;
+        // ═══════════════ قسم المطور ═══════════════
+        function toggleDevSection() {
+            var devSection = safeGetElement('devSection');
+            var devTab = safeGetElement('devTab');
+            
+            if (!devSection || !devTab) return;
+            
+            var isActive = devSection.classList.contains('active');
+            
+            if (isActive) {
+                devSection.classList.remove('active');
+                devTab.classList.remove('active');
+            } else {
+                devSection.classList.add('active');
+                devTab.classList.add('active');
+            }
+        }
         
+        // تصدير الدالة للاستخدام في onclick
+        window.toggleDevSection = toggleDevSection;
         })(window, document);
