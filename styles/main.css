@@ -392,7 +392,8 @@ body {
     cursor: pointer;
     transition: all .3s;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    overflow: hidden
 }
 
 .parking-spot:hover {
@@ -445,25 +446,31 @@ body {
 
 .spot-number {
     position: absolute;
-    top: 3px;
-    right: 3px;
+    top: 2px;
+    right: 2px;
     background: rgba(0, 0, 0, .8);
     color: var(--primary);
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: .65rem;
-    font-weight: 700
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: .6rem;
+    font-weight: 700;
+    z-index: 2
 }
 
 .spot-badge {
     position: absolute;
-    top: 3px;
-    left: 3px;
-    padding: 2px 5px;
-    border-radius: 4px;
-    font-size: .55rem;
+    top: 2px;
+    left: 2px;
+    padding: 1px 3px;
+    border-radius: 3px;
+    font-size: .45rem;
     font-weight: 700;
-    color: #fff
+    color: #fff;
+    max-width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    z-index: 2
 }
 
 .spot-badge.early {
@@ -483,31 +490,34 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2px;
-    margin-top: 18px;
-    font-size: .6rem;
-    color: #fff
+    gap: 1px;
+    margin-top: 14px;
+    font-size: .5rem;
+    color: #fff;
+    overflow: hidden
 }
 
 .info-row {
     display: flex;
     align-items: center;
-    gap: 3px;
+    gap: 2px;
     white-space: nowrap;
-    overflow: hidden
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%
 }
 
 .info-icon {
-    font-size: .7rem
+    font-size: .6rem
 }
 
 .countdown {
     text-align: center;
-    font-size: .65rem;
+    font-size: .55rem;
     font-weight: 700;
-    padding: 3px;
+    padding: 2px;
     background: rgba(0, 0, 0, .5);
-    border-radius: 4px;
+    border-radius: 3px;
     margin-top: auto
 }
 
@@ -1528,6 +1538,7 @@ body {
         grid-template-columns: repeat(5, 1fr)
     }
 }
+
 /* ═══════════════ شريط التبويبات الرئيسي ═══════════════ */
 .main-tabs-bar {
     width: 100%;
