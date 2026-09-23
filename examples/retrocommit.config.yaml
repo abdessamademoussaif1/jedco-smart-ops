@@ -1,0 +1,51 @@
+# yaml-language-server: $schema=https://cdn.jsdelivr.net/npm/retrocommit/schema.json
+# retrocommit configuration · https://github.com/abpineda/retrocommit#configuration
+# Run `retrocommit preview` to see the result and `retrocommit` to create it.
+
+# ── Period ──────────────────────────────────────────────────────────────────
+from: 1y                  # YYYY-MM-DD, YYYY-MM, YYYY, today, yesterday, 30d, 12w, 6m, 1y
+to: today
+# year: 2024              # a whole calendar year instead of from/to
+# exclude:                # days to skip
+#   - 2024-12-25
+#   - 2024-08-01..2024-08-15
+
+# ── Schedule ────────────────────────────────────────────────────────────────
+commits: 1-5              # per active day: a number (3) or a random range (1-8)
+frequency: 80             # % of the selected days that get commits
+days: all                 # all, weekdays, weekends, mon,wed,fri or mon-fri
+distribution: uniform     # uniform, normal or skewed (mostly low, looks natural)
+# weights:                # relative chance per day of the week
+#   sat: 0.3
+#   sun: 0.2
+# preset: realistic       # casual, realistic, workweek or intense
+fill: all                 # all, gaps (only empty days) or top-up
+time: 09:00-21:00         # local time window for the commits
+# timezone: Europe/Madrid # default: your system's time zone
+# seed: 42                # same seed = same plan
+
+# ── Drawing (instead of a schedule) ────────────────────────────────────────
+# text: HELLO
+# pattern: ./pattern.txt
+# intensity: 12
+
+# ── Commits ─────────────────────────────────────────────────────────────────
+message: "Update activity log ({date} #{n})"
+# messagesFile: ./messages.txt
+# authorName: Your Name   # default: your GitHub name
+# authorEmail: you@example.com  # default: your GitHub no-reply email (recommended)
+content: single           # single, daily or empty
+readme: true
+
+# ── Repository ──────────────────────────────────────────────────────────────
+repo: activity-log
+visibility: private       # private or public
+# owner: my-organization
+# description: Activity log
+# topics: [retrocommit]
+branch: main
+ifExists: fail            # fail, append or replace
+# push: false             # only create the repository locally
+# output: ./activity-log  # keep a local copy
+# remote: git@github.com:you/activity-log.git
+# protocol: https         # https (token) or ssh (your SSH keys)

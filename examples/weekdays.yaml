@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=https://cdn.jsdelivr.net/npm/retrocommit/schema.json
+# A work-week rhythm: Monday to Friday, most days, 2–8 commits,
+# only on the days that don't have contributions yet.
+from: 6m
+days: weekdays
+frequency: 85
+commits: 2-8
+distribution: normal
+time: 09:00-18:30
+fill: gaps

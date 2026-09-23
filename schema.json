@@ -1,0 +1,309 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "$schema": {
+            "description": "JSON Schema of this file (enables autocompletion).",
+            "type": "string"
+        },
+        "preset": {
+            "description": "Start from a preset: casual, realistic, workweek or intense.",
+            "type": "string",
+            "enum": [
+                "casual",
+                "realistic",
+                "workweek",
+                "intense"
+            ]
+        },
+        "from": {
+            "description": "First day to fill: YYYY-MM-DD, YYYY-MM, YYYY, today, yesterday or relative (30d, 12w, 6m, 1y). Default: 1y.",
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "integer",
+                    "minimum": -9007199254740991,
+                    "maximum": 9007199254740991
+                }
+            ]
+        },
+        "to": {
+            "description": "Last day to fill (same formats as `from`). Default: today.",
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "integer",
+                    "minimum": -9007199254740991,
+                    "maximum": 9007199254740991
+                }
+            ]
+        },
+        "year": {
+            "description": "Fill a whole calendar year (shortcut for from/to).",
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+        },
+        "exclude": {
+            "description": "Days to skip: 2024-12-25, whole months (2024-08) or ranges (2024-08-01..2024-08-15).",
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            ]
+        },
+        "allowFuture": {
+            "description": "Allow dates after today. Default: false.",
+            "type": "boolean"
+        },
+        "commits": {
+            "description": "Commits per active day: a number (5) or a random range (\"1-10\"). Default: 1-5.",
+            "anyOf": [
+                {
+                    "type": "integer",
+                    "minimum": -9007199254740991,
+                    "maximum": 9007199254740991
+                },
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "min": {
+                            "type": "integer",
+                            "minimum": -9007199254740991,
+                            "maximum": 9007199254740991
+                        },
+                        "max": {
+                            "type": "integer",
+                            "minimum": -9007199254740991,
+                            "maximum": 9007199254740991
+                        }
+                    },
+                    "required": [
+                        "min",
+                        "max"
+                    ],
+                    "additionalProperties": false
+                }
+            ]
+        },
+        "distribution": {
+            "description": "How amounts are drawn from the range: uniform, normal (bell curve) or skewed (mostly low, natural looking). Default: uniform.",
+            "type": "string",
+            "enum": [
+                "uniform",
+                "normal",
+                "skewed"
+            ]
+        },
+        "frequency": {
+            "description": "Percentage of eligible days that get commits (0-100). Default: 100.",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+        },
+        "days": {
+            "description": "Days of the week: all, weekdays, weekends, a list (mon,wed,fri) or a range (mon-fri). Default: all.",
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            ]
+        },
+        "weights": {
+            "description": "Relative chance per day of the week, e.g. { \"sat\": 0.3, \"sun\": 0.2 }.",
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "object",
+                    "propertyNames": {
+                        "type": "string"
+                    },
+                    "additionalProperties": {
+                        "type": "number",
+                        "minimum": 0
+                    }
+                }
+            ]
+        },
+        "fill": {
+            "description": "all: fill every selected day · gaps: only days without contributions · top-up: add only what's missing to reach the target. Default: all.",
+            "type": "string",
+            "enum": [
+                "all",
+                "gaps",
+                "top-up"
+            ]
+        },
+        "maxCommits": {
+            "description": "Safety limit for the total number of commits. Default: 50000.",
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+        },
+        "seed": {
+            "description": "Seed for the random choices; the same seed reproduces the same plan.",
+            "type": [
+                "string",
+                "number"
+            ]
+        },
+        "time": {
+            "description": "Local time window for commits, HH:MM-HH:MM. Default: 09:00-21:00.",
+            "type": "string"
+        },
+        "timezone": {
+            "description": "IANA time zone (Europe/Madrid), UTC or an offset (+05:30). Default: the system's.",
+            "type": "string"
+        },
+        "text": {
+            "description": "Write this text on the contribution graph.",
+            "type": "string"
+        },
+        "pattern": {
+            "description": "Path to a pattern file to draw on the graph (up to 7 lines).",
+            "type": "string"
+        },
+        "intensity": {
+            "description": "Commits for the darkest squares of a drawing. Default: 12.",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000
+        },
+        "message": {
+            "description": "Commit message template. Placeholders: {date} {time} {datetime} {n} {count} {i} {total} {weekday} {year} {month} {day}.",
+            "type": "string"
+        },
+        "messagesFile": {
+            "description": "Text file with one message (template) per line, picked at random.",
+            "type": "string"
+        },
+        "authorName": {
+            "description": "Commit author name. Default: your GitHub name.",
+            "type": "string"
+        },
+        "authorEmail": {
+            "description": "Commit author email. Default: your GitHub no-reply address (always counts).",
+            "type": "string"
+        },
+        "content": {
+            "description": "What each commit changes: single (one log file), daily (one file per day) or empty. Default: single.",
+            "type": "string",
+            "enum": [
+                "single",
+                "daily",
+                "empty"
+            ]
+        },
+        "contentPath": {
+            "description": "Log file (single) or folder (daily). Default: activity.log / activity.",
+            "type": "string"
+        },
+        "readme": {
+            "description": "Add a README.md in the first commit: true, false or a path to your own. Default: true.",
+            "type": [
+                "boolean",
+                "string"
+            ]
+        },
+        "repo": {
+            "description": "Repository name. Default: activity-log.",
+            "type": "string"
+        },
+        "owner": {
+            "description": "Create the repository in this organization instead of your account.",
+            "type": "string"
+        },
+        "visibility": {
+            "description": "Repository visibility. Default: private.",
+            "type": "string",
+            "enum": [
+                "private",
+                "public"
+            ]
+        },
+        "description": {
+            "description": "Repository description.",
+            "type": "string"
+        },
+        "topics": {
+            "description": "Repository topics. Default: retrocommit.",
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            ]
+        },
+        "branch": {
+            "description": "Branch to write (must be the default branch to count). Default: main.",
+            "type": "string"
+        },
+        "ifExists": {
+            "description": "When the repository already has commits: fail, append (add on top) or replace (overwrite). Default: fail.",
+            "type": "string",
+            "enum": [
+                "fail",
+                "append",
+                "replace"
+            ]
+        },
+        "push": {
+            "description": "Push to GitHub. false = only create the local repository.",
+            "type": "boolean"
+        },
+        "output": {
+            "description": "Keep the generated repository in this directory.",
+            "type": "string"
+        },
+        "remote": {
+            "description": "Push to this existing git remote URL instead of creating a GitHub repository.",
+            "type": "string"
+        },
+        "protocol": {
+            "description": "How to push to GitHub: https (token) or ssh (your SSH keys). Default: https.",
+            "type": "string",
+            "enum": [
+                "https",
+                "ssh"
+            ]
+        },
+        "host": {
+            "description": "GitHub host (for GitHub Enterprise Server). Default: github.com.",
+            "type": "string"
+        },
+        "apiUrl": {
+            "description": "GitHub API URL (for GitHub Enterprise Server).",
+            "type": "string"
+        }
+    },
+    "additionalProperties": false,
+    "description": "retrocommit configuration",
+    "$id": "https://cdn.jsdelivr.net/npm/retrocommit/schema.json",
+    "title": "retrocommit configuration"
+}

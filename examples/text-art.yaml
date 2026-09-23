@@ -1,0 +1,7 @@
+# yaml-language-server: $schema=https://cdn.jsdelivr.net/npm/retrocommit/schema.json
+# Writes "HI ♥" in the middle of the last 12 months of your profile.
+text: HI ♥
+intensity: 15
+repo: hello-graph
+visibility: public
+description: Hi there!

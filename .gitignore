@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.tgz
+
+# Tests & coverage
+coverage/
+.vitest/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# Maintainer's personal notes (kept locally, never published).
+# docs/assets/ itself IS committed: the README images live there.
+/docs/RELEASING.md
+/docs/assets/README.md
+/docs/demo.tape
+
+# Local retrocommit output / configs used while developing
+/activity-log/
+/retrocommit.config.*
+/.retrocommitrc*
+
+# Editors & OS
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+.DS_Store
+Thumbs.db
+
+# Local AI assistant files
+.claude/
+.claude*
+CLAUDE.md
+CLAUDE.local.md
+**/CLAUDE.md
+**/CLAUDE.local.md
+.mcp.json

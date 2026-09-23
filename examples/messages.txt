@@ -1,0 +1,8 @@
+# One message per line, picked at random. Lines starting with # are ignored.
+# Placeholders: {date} {time} {datetime} {n} {count} {i} {total} {weekday} {year} {month} {day}
+Update activity log
+Daily notes for {date}
+Log entry {n} of {count} ({weekday})
+Weekly review ({year}-{month})
+Tidy up notes
+Add ideas for {date}

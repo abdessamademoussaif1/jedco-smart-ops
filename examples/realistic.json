@@ -1,0 +1,11 @@
+{
+    "$schema": "https://cdn.jsdelivr.net/npm/retrocommit/schema.json",
+    "preset": "realistic",
+    "from": "2024-01-01",
+    "to": "2024-12-31",
+    "exclude": ["2024-08-05..2024-08-18", "2024-12-24..2024-12-31"],
+    "time": "10:00-20:00",
+    "messagesFile": "./messages.txt",
+    "repo": "activity-log",
+    "visibility": "private"
+}
