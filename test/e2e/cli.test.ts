@@ -1,14 +1,20 @@
 import { spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";
 import { readFile, writeFile } from "node:fs/promises";
-import { join } from "node:path";
+import { delimiter, join } from "node:path";
 import { pathToFileURL } from "node:url";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterAll, afterEach, describe, expect, it } from "vitest";
 import { runGit } from "../../src/git/exec.ts";
 import { tempDir } from "../helpers.ts";
 
 const CLI = join(import.meta.dirname, "..", "..", "dist", "cli.js");
 const AUTHOR = ["--author-name", "Test User", "--author-email", "test@example.com"];
+
+// A `gh` that is never logged in, so the developer's GitHub CLI session doesn't leak into the
+// tests. Windows doesn't run extensionless files, but CI runners aren't logged in to gh anyway.
+const noGh = await tempDir("retrocommit-no-gh-");
+await writeFile(join(noGh.path, "gh"), "#!/bin/sh\nexit 1\n", { mode: 0o755 });
+afterAll(() => noGh.cleanup());
 
 interface Result {
     code: number;
@@ -25,6 +31,7 @@ function cli(args: string[], options: { cwd?: string; env?: Record<string, strin
     };
     for (const name of ["RETROCOMMIT_TOKEN", "GH_TOKEN", "GITHUB_TOKEN", "FORCE_COLOR"])
         delete env[name];
+    if (process.platform !== "win32") env.PATH = `${noGh.path}${delimiter}${env.PATH ?? ""}`;
     const result = spawnSync(process.execPath, [CLI, ...args], {
         cwd: options.cwd,
         env,

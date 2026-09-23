@@ -221,8 +221,17 @@ describe("Output", () => {
         }) as unknown as NodeJS.WriteStream;
         const stderr = Object.assign(new PassThrough(), { isTTY }) as unknown as NodeJS.WriteStream;
         const stdin = Object.assign(new PassThrough(), { isTTY }) as unknown as NodeJS.ReadStream;
-        const read = (stream: NodeJS.WriteStream) =>
-            ((stream as unknown as PassThrough).read() ?? "").toString();
+        // Node 26+ returns one buffered chunk per read() call, so drain them all.
+        const read = (stream: NodeJS.WriteStream) => {
+            const readable = stream as unknown as PassThrough;
+            const chunks: Buffer[] = [];
+            let chunk: Buffer | null = readable.read();
+            while (chunk !== null) {
+                chunks.push(chunk);
+                chunk = readable.read();
+            }
+            return Buffer.concat(chunks).toString();
+        };
         return { stdout, stderr, stdin, read };
     }
 

@@ -131,9 +131,13 @@ describe("generating history with git fast-import", () => {
         await generate(directory, "worktree", "daily", { readme: "# Hi\n" });
         await checkoutWorktree(directory);
 
+        // git may check files out with CRLF (core.autocrlf on Windows), so compare with LF.
+        const readText = async (file: string) =>
+            (await readFile(join(directory, file), "utf8")).replaceAll("\r\n", "\n");
+
         const status = await runGit(["status", "--porcelain"], { cwd: directory });
         expect(status.stdout.trim()).toBe("");
-        expect(await readFile(join(directory, "README.md"), "utf8")).toBe("# Hi\n");
+        expect(await readText("README.md")).toBe("# Hi\n");
         const files = await runGit(["ls-tree", "-r", "--name-only", "HEAD"], { cwd: directory });
         const logs = files.stdout
             .trim()
@@ -141,7 +145,7 @@ describe("generating history with git fast-import", () => {
             .filter((file) => file.startsWith("activity/"));
         expect(logs.length).toBeGreaterThan(0);
         for (const file of logs) expect(file).toMatch(/^activity\/2024\/01\/2024-01-\d{2}\.md$/);
-        const firstLog = await readFile(join(directory, logs[0] ?? ""), "utf8");
+        const firstLog = await readText(logs[0] ?? "");
         expect(firstLog).toMatch(/^# Activity on 2024-01-\d{2}\n\n- \d{2}:\d{2}:\d{2} Commit 1\//);
     });
 
