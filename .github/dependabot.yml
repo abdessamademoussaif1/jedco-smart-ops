@@ -11,6 +11,10 @@ updates:
       production:
         dependency-type: production
         update-types: [minor, patch]
+    ignore:
+      # The types must match the oldest supported Node.js version (engines: >=22.12.0).
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: github-actions
     directory: /
